@@ -11612,6 +11612,11 @@ body {
   margin-bottom: 5rem;
 }
 
+.map-section {
+  padding_top: 10rem;
+  background: rgba(0, 0, 0, 0.9);
+}
+
 .projects-section {
   padding: 10rem 0;
 }
