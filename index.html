@@ -86,6 +86,10 @@
                 var row = data[i];
                 var marker = L.marker([row.Latitude, row.Longitude], {
                   opacity: 1
+                  // Customize the icon
+                  icon: L.icon({
+                    iconUrl: './assets/img/city.svg',
+                    iconSize: [40, 60]
                 }).bindPopup(row.Title);
                 marker.addTo(map);}
               });
