@@ -70,42 +70,27 @@
         </section>
         <!-- Map-->
         <section class="map-section text-center" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-12">
-                        <div id="map" style="height:700px">
-                        </div>
-                        <script>
-                        var map= L.map('map', {minZoom:4, maxZoom:10, scrollWheelZoom:false}).setView([37.09024, -95.712891], 5);
-                        var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
-                        }).addTo(map);
-                        // Read markers data from data.csv
-                        $.get('./assets/data/test_coded.csv', function(csvString) {
-
-                          // Use PapaParse to convert string to array of objects
-                          var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-
-                          // For each row in data, create a marker and add it to the map
-                          // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-                          for (var i in data) {
-                            var row = data[i];
-
-                            var marker = L.marker([row.Latitude, row.Longitude], {
-                              opacity: 1
-                            }).bindPopup(row.Title);
-
-                            marker.addTo(map);
-                          }
-
-                        });
-
-
-                        </script>
-                      </div>
-                  </div>
-              </div>
-          </section>
+            <div id="map" style="height:700px">
+            </div>
+            <script>
+            var map= L.map('map', {minZoom:4, maxZoom:10, scrollWheelZoom:false}).setView([37.09024, -95.712891], 5);
+            var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+            }).addTo(map);
+            // Read markers data from csv
+            $.get('./assets/data/test_coded.csv', function(csvString) {
+              // Use PapaParse to convert string to array of objects
+              var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              // For each row in data, create a marker and add it to the map
+              for (var i in data) {
+                var row = data[i];
+                var marker = L.marker([row.Latitude, row.Longitude], {
+                  opacity: 1
+                }).bindPopup(row.Title);
+                marker.addTo(map);}
+              });
+            </script>
+        </section>
         <!-- Data-->
         <section class="about-section text-center" id="data">
             <div class="container px-4 px-lg-5">
