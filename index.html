@@ -78,7 +78,7 @@
               attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
             }).addTo(map);
             // Read markers data from csv
-            $.get('./assets/data/test_coded.csv', function(csvString) {
+            $.get('./assets/data/data202201.csv', function(csvString) {
               // Use PapaParse to convert string to array of objects
               var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
               // For each row in data, create a marker and add it to the map
@@ -94,6 +94,7 @@
                 }).bindPopup(row.Title);
                 marker.addTo(map);}
               });
+
             </script>
         </section>
         <!-- Data-->
