@@ -86,12 +86,15 @@
             // Read markers data from csv
             $.get('./assets/data/data202201.csv', function(csvString) {
               var data202201 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              var g202201 = L.geoJSON(data202201, optionsObject);
             });
             $.get('./assets/data/data202202.csv', function(csvString) {
               var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              var g202202 = L.geoJSON(data202202, optionsObject);
             });
             $.get('./assets/data/data202203.csv', function(csvString) {
               var data202203 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              var g202203 = L.geoJSON(data202203, optionsObject);
             });
 
             var optionsObject = {
@@ -105,9 +108,8 @@
               layer.bindPopup(content, {closeButton: true});
             };
             // Create the geoJSON layer
-            var g202201 = L.geoJSON(data202201, optionsObject);
-            var g202202 = L.geoJSON(data202203, optionsObject);
-            var g202203 = L.geoJSON(data202203, optionsObject);
+
+            
             // Set the time attribute
             g202201.options.time = "Jan 2022";
             g202202.options.time = "Feb 2022";
