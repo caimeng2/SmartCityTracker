@@ -104,8 +104,9 @@
               'geometry': {'type': 'point', 'coordinates': [-118.2436849, 34.0522342]},
               'properties': {'title': 'Los Angeles, CA',
               'description': 'bla',
-              'time': '202202'}},
+              'time': '202202'}}
             ];
+            console.log(data202201);
             //$.get('./assets/data/data202202.csv', function(csvString) {
               //var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
             //});
@@ -120,7 +121,7 @@
               }
             };
             function onEachFeature (feature, layer) {
-              var content = "<div style='clear: both'></div><div><h4>" + feature.properties.Title + "</h4></div>";
+              var content = "<div style='clear: both'></div><div><h4>" + feature.properties.time + "</h4></div>";
               layer.bindPopup(content, {closeButton: true});
             };
             // Create the geoJSON layer
