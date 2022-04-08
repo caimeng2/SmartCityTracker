@@ -92,8 +92,21 @@
             });
             // Read markers data from csv
             var data202201 = {$.get('./assets/data/data202201.csv', function(csvString) {
-              return [Papa.parse(csvString, {header: true, dynamicTyping: true}).data];
+              return Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
             }});
+            var data202201 = [
+              {'type': 'Feature',
+              'geometry': {'type': 'point', 'coordinates': [-74.0059728, 40.7127753]},
+              'properties': {'title': 'New York, NY',
+              'description': 'bla',
+              'time': '202202'}},
+              {'type': 'Feature',
+              'geometry': {'type': 'point', 'coordinates': [-118.2436849, 34.0522342]},
+              'properties': {'title': 'Los Angeles, CA',
+              'description': 'bla',
+              'time': '202202'}},
+
+            ]
             //$.get('./assets/data/data202202.csv', function(csvString) {
               //var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
             //});
