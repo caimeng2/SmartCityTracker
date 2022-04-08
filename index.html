@@ -152,9 +152,9 @@
             //});
             var optionsObject = {
               onEachFeature: onEachFeature,
-              pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, {icon: myicon});
-              }
+              //pointToLayer: function (feature, latlng) {
+                //return L.marker(latlng, {icon: myicon});
+              //}
             };
             function onEachFeature (feature, layer) {
                 var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
