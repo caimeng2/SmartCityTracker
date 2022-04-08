@@ -93,13 +93,18 @@
             // Read markers data from csv
             $.get('./assets/data/data202201.csv', function(csvString) {
               var data202201 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              console.log(data202201);
+              console.log("--------");
+              console.log(Papa.parse(csvString, {header: true, dynamicTyping: true}));
+              console.log("--------");
+              console.log(Papa.parse(csvString, {header: true, dynamicTyping: true}).errors);
             });
-            $.get('./assets/data/data202202.csv', function(csvString) {
-              var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-            });
-            $.get('./assets/data/data202203.csv', function(csvString) {
-              var data202203 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-            });
+            //$.get('./assets/data/data202202.csv', function(csvString) {
+              //var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+            //});
+            //$.get('./assets/data/data202203.csv', function(csvString) {
+              //var data202203 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+            //});
 
             var optionsObject = {
               onEachFeature: onEachFeature,
