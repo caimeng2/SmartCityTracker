@@ -102,7 +102,12 @@
             };
             // Read markers data from csv
             var data202201 = $.get('./assets/data/data202201.csv', function(csvString) {
-              var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              var data = Papa.parse(csvString, {
+                header: true,
+                dynamicTyping: true,
+                complete: function(results){
+                  return results
+                }}).data;
               return data;
               });
             var g202201 = L.geoJSON(data202201, optionsObject);
