@@ -90,17 +90,6 @@
               iconUrl:'./assets/img/marker-stroked.svg',
               iconSize: [20, 40]
             });
-            // Read markers data from csv
-            $.get('./assets/data/data202201.csv', function(csvString) {
-              var data202201 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-            });
-
-            //$.get('./assets/data/data202202.csv', function(csvString) {
-              //var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-            //});
-            //$.get('./assets/data/data202203.csv', function(csvString) {
-              //var data202203 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-            //});
             var optionsObject = {
               onEachFeature: onEachFeature,
               pointToLayer: function (feature, latlng) {
@@ -111,9 +100,24 @@
                 var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
                 layer.bindPopup(content, {closeButton: true});
             };
+            // Read markers data from csv
+            $.get('./assets/data/data202201.csv', function(csvString) {
+              var data202201 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              var g202201 = L.geoJSON(data202201, optionsObject);
+              g202201.addTo(map);
+            });
+
+            //$.get('./assets/data/data202202.csv', function(csvString) {
+              //var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+            //});
+            //$.get('./assets/data/data202203.csv', function(csvString) {
+              //var data202203 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+            //});
+
+            
             // Create the geoJSON layer
-            var g202201 = L.geoJSON(data202201, optionsObject);
-            g202201.addTo(map);
+            //var g202201 = L.geoJSON(data202201, optionsObject);
+            //g202201.addTo(map);
             //var g202202 = L.geoJSON(data202202, optionsObject);
             //var g202203 = L.geoJSON(data202203, optionsObject);
             // Set the time attribute
