@@ -101,12 +101,27 @@
                 layer.bindPopup(content, {closeButton: true});
             };
             // Read markers data from csv
-            var data202201 = Papa.parse('./assets/data/data202201.csv', {
-              header: true,
-              dynamicTyping: true,
-              download: true,
-              complete: function(results) {
-                return results.data}});
+            $.get('./assets/data/data202201.csv', function(csvString) {
+              // Use PapaParse to convert string to array of objects
+              var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              // For each row in data, create a marker and add it to the map
+              for (var i in data) {
+                var row = data[i];
+                var marker = L.marker([row.Latitude, row.Longitude], {
+                  opacity: 1,
+                  // Customize the icon
+                  icon: L.icon({
+                    iconUrl: './assets/img/marker-stroked.svg',
+                    iconSize: [20, 40]
+                    })
+                }).bindPopup(row.Title);
+                marker.addTo(map);}
+              });
+
+            var data202201 = $.get('./assets/data/data202201.csv', function(csvString) {
+              var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+              return data;
+              });
             var g202201 = L.geoJSON(data202201, optionsObject);
             g202201.addTo(map);
 
