@@ -104,6 +104,7 @@
             var data202201 = Papa.parse('./assets/data/data202201.csv', {
               header: true,
               dynamicTyping: true,
+              download: true,
               complete: function(results) {
                 return results.data}});
             var g202201 = L.geoJSON(data202201, optionsObject);
