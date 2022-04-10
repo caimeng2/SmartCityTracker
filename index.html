@@ -101,7 +101,11 @@
                 layer.bindPopup(content, {closeButton: true});
             };
             // Read markers data from csv
-            var data202201 = Papa.parse('./assets/data/data202201.csv', {header: true, dynamicTyping: true, complete: function(results){return results.data}});
+            var data202201 = Papa.parse('./assets/data/data202201.csv', {
+              header: true,
+              dynamicTyping: true,
+              complete: function(results) {
+                return results.data}});
             var g202201 = L.geoJSON(data202201, optionsObject);
             g202201.addTo(map);
 
