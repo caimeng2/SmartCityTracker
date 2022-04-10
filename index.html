@@ -88,63 +88,23 @@
             // change icon
             var myicon = L.icon({
               iconUrl:'./assets/img/marker-stroked.svg',
-              iconSize: [20, 40],
-              iconAnchor: [20,40],
-              popupAnchor: [-3, -76]
+              iconSize: [20, 40]
             });
             // Read markers data from csv
             //var data202201 = {$.get('./assets/data/data202201.csv', function(csvString) {
               //return Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
             //}});
-            var dataset1 = [
-    {
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [-119.0977191, 46.2465524]
-        },
-        properties: {
-            title: 'Popup 1',
-            description: 'Hello World!',
-            time: '1992/01'
-        }
-    },
-    {
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [-119.201977, -46.257038]
-        },
-        properties: {
-            title: 'Popup 2',
-            description: 'Hello again, World!',
-            time: '1992/07'
-        }
-    },
-    {
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [-119.1080419, 46.2309332]
-        },
-        properties: {
-            title: 'Popup 3',
-            description: 'Hello once again, World!',
-            time: '1992/06'
-        }
-    }
-];
             var data202201 = [
-              {'type': 'Feature',
-              'geometry': {'type': 'point', 'coordinates': [-74.0059728, 40.7127753]},
-              'properties': {'title': 'New York, NY',
-              'description': 'bla',
-              'time': '202202'}},
-              {'type': 'Feature',
-              'geometry': {'type': 'point', 'coordinates': [-118.2436849, 34.0522342]},
-              'properties': {'title': 'Los Angeles, CA',
-              'description': 'bla',
-              'time': '202202'}}
+              {type: 'Feature',
+              geometry: {type: 'point', coordinates: [-74.0059728, 40.7127753]},
+              properties: {title: 'New York, NY',
+              description: 'bla',
+              time: '202202'}},
+              {type: 'Feature',
+              geometry: {'type': 'point', coordinates: [-118.2436849, 34.0522342]},
+              properties: {title: 'Los Angeles, CA',
+              description: 'bla',
+              time: '202202'}}
             ];
             //$.get('./assets/data/data202202.csv', function(csvString) {
               //var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
@@ -163,7 +123,7 @@
                 layer.bindPopup(content, {closeButton: true});
             };
             // Create the geoJSON layer
-            var g202201 = L.geoJSON(dataset1, optionsObject);
+            var g202201 = L.geoJSON(dataset202201, optionsObject);
             g202201.addTo(map);
             //var g202202 = L.geoJSON(data202202, optionsObject);
             //var g202203 = L.geoJSON(data202203, optionsObject);
