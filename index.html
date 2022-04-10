@@ -88,7 +88,9 @@
             // change icon
             var myicon = L.icon({
               iconURL:'./assets/img/marker-stroked.svg',
-              iconSize: [20, 40]
+              iconSize: [20, 40],
+              iconAnchor: [20,40],
+              popupAnchor: [-3, -76]         
             });
             // Read markers data from csv
             //var data202201 = {$.get('./assets/data/data202201.csv', function(csvString) {
@@ -152,9 +154,9 @@
             //});
             var optionsObject = {
               onEachFeature: onEachFeature,
-              //pointToLayer: function (feature, latlng) {
-                //return L.marker(latlng, {icon: myicon});
-              //}
+              pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, {icon: myicon});
+              }
             };
             function onEachFeature (feature, layer) {
                 var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
