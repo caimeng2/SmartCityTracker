@@ -91,9 +91,9 @@
               iconSize: [20, 40]
             });
             // Read markers data from csv
-            var data202201 = {$.get('./assets/data/data202201.csv', function(csvString) {
+            var data202201 = $.get('./assets/data/data202201.csv', function(csvString) {
               return Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-            }});
+            });
 
             //$.get('./assets/data/data202202.csv', function(csvString) {
               //var data202202 = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
