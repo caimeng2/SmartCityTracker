@@ -98,7 +98,7 @@
             };
             function onEachFeature (feature, layer) {
                 //var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
-                var content = "<div style='clear: both'></div><div><h4>" + feature.properties.Title + "</h4></div>";
+                var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4></div>";
                 layer.bindPopup(content, {closeButton: true});
             };
             $.getJSON('./assets/data/data202201.js', function(json){
