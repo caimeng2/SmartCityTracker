@@ -111,6 +111,8 @@
               //});
               //return data;
               //});
+              import { createRequire } from 'module';
+              const require = createRequire(import.meta.url);
               var fs = require('fs');
               function toJson (filepath) {
                 const file = fs.createReadStream(filepath)
