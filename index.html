@@ -111,10 +111,11 @@
               //});
               //return data;
               //});
-              import { createRequire } from 'module';
-              const require = createRequire(import.meta.url);
-              var fs = require('fs');
+
               function toJson (filepath) {
+                import { createRequire } from 'module';
+                const require = createRequire(import.meta.url);
+                var fs = require('fs');
                 const file = fs.createReadStream(filepath)
                 return new Promise((resolve, reject) => {
                   Papa.parse(file, {
