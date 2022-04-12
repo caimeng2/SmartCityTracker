@@ -100,38 +100,7 @@
                 var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
                 layer.bindPopup(content, {closeButton: true});
             };
-            // Read markers data from csv
-            //var data202201 = $.get('./assets/data/data202201.csv', function(csvString) {
-              //var data = Papa.parse(csvString, {
-                //header: true,
-                //dynamicTyping: true,
-                //complete: function(results){
-                  //return results.data;
-                //}
-              //});
-              //return data;
-              //});
-
-              function toJson (filepath) {
-                import { createRequire } from 'module';
-                const require = createRequire(import.meta.url);
-                var fs = require('fs');
-                const file = fs.createReadStream(filepath)
-                return new Promise((resolve, reject) => {
-                  Papa.parse(file, {
-                    header: true,
-                    complete (results, file) {
-                      resolve(results.data)
-                    },
-                    error (err, file) {
-                      reject(err)
-                    }
-                  })
-                })
-              }
-              var data202201 = toJson('./assets/data/data202201.csv')
-              //.then(console.log)
-              //.catch(console.log)
+            var data202201 = $.getJSON('./assets/data/data202201.js');
             var g202201 = L.geoJSON(data202201, optionsObject);
             g202201.addTo(map);
 
