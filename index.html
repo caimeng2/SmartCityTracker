@@ -101,16 +101,34 @@
                 layer.bindPopup(content, {closeButton: true});
             };
             // Read markers data from csv
-            var data202201 = $.get('./assets/data/data202201.csv', function(csvString) {
-              var data = Papa.parse(csvString, {
-                header: true,
-                dynamicTyping: true,
-                complete: function(results){
-                  return results.data;
-                }
-              });
-              return data;
-              });
+            //var data202201 = $.get('./assets/data/data202201.csv', function(csvString) {
+              //var data = Papa.parse(csvString, {
+                //header: true,
+                //dynamicTyping: true,
+                //complete: function(results){
+                  //return results.data;
+                //}
+              //});
+              //return data;
+              //});
+
+              function toJson (filepath) {
+                const file = fs.createReadStream(filepath)
+                return new Promise((resolve, reject) => {
+                  Papa.parse(file, {
+                    header: true,
+                    complete (results, file) {
+                      resolve(results.data)
+                    },
+                    error (err, file) {
+                      reject(err)
+                    }
+                  })
+                })
+              }
+              var data202201 = toJson('./assets/data/data202201.csv')
+              //.then(console.log)
+              //.catch(console.log)
             var g202201 = L.geoJSON(data202201, optionsObject);
             g202201.addTo(map);
 
