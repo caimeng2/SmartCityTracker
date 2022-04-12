@@ -97,14 +97,14 @@
               }
             };
             function onEachFeature (feature, layer) {
-                var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
+                //var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
+                var content = "<div style='clear: both'></div><div><h4>" + feature.properties.Title + "</h4></div>";
                 layer.bindPopup(content, {closeButton: true});
             };
-            var data202201 = $.getJSON('./assets/data/data202201.js', function(json){
-              return json
-            });
-            var g202201 = L.geoJSON(data202201, optionsObject);
-            g202201.addTo(map);
+            $.getJSON('./assets/data/data202201.js', function(json){
+              var group1 = L.geoJSON(data202201, optionsObject);
+              group1.addTo(map);
+
 
 
             //$.get('./assets/data/data202202.csv', function(csvString) {
