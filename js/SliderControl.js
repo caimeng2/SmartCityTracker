@@ -1,7 +1,6 @@
 L.Control.SliderControl = L.Control.extend({
     options: {
-        position: 'bottom',
-        //position: 'topright',
+        position: 'topright',
         layer: null,
         timeAttribute: 'time',
         isEpoch: false,     // whether the time attribute is seconds elapsed from epoch
@@ -38,7 +37,7 @@ L.Control.SliderControl = L.Control.extend({
         var sliderContainer = L.DomUtil.create('div', '', this.sliderBoxContainer);
         sliderContainer.id = "leaflet-slider";
         //sliderContainer.style.width = "200px";
-        sliderContainer.style.width = "60%";
+        sliderContainer.style.width = "400px";
 
         L.DomUtil.create('div', 'ui-slider-handle', sliderContainer);
         this.timestampContainer = L.DomUtil.create('div', 'slider', this.container);
