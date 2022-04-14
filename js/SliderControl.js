@@ -1,6 +1,6 @@
 L.Control.SliderControl = L.Control.extend({
     options: {
-        position: 'center',
+        position: 'bottom',
         //position: 'topright',
         layer: null,
         timeAttribute: 'time',
