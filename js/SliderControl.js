@@ -41,7 +41,7 @@ L.Control.SliderControl = L.Control.extend({
         L.DomUtil.create('div', 'ui-slider-handle', sliderContainer);
         this.timestampContainer = L.DomUtil.create('div', 'slider', this.container);
         this.timestampContainer.id = "slider-timestamp";
-        this.timestampContainer.style.cssText = "width:200px; margin-top:3px; background-color:#FFFFFF; text-align:center; border-radius:5px;display:none;";
+        this.timestampContainer.style.cssText = "width:400px; margin-top:3px; background-color:#FFFFFF; text-align:center; border-radius:5px;display:none;";
 
 
         //Prevent map panning/zooming while using the slider
