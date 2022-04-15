@@ -106,7 +106,7 @@
             };
             // define onEachFeature
             function onEachFeature (feature, layer) {
-                var content = "<div style='clear: both'></div><div><h5>" + feature.properties.title + "</h5><p>" + feature.properties.description + "<a href=" + feature.properties.link + " target='_blank'>read more</a></p></div>";
+                var content = "<div style='clear: both'></div><div><h5>" + feature.properties.title + "</h5><p>" + feature.properties.description + "<a href=" + feature.properties.link + " target='_blank'> Read more</a></p></div>";
                 layer.bindPopup(content, {closeButton: true});
             };
             // map data
