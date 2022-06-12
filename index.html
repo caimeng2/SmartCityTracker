@@ -120,20 +120,24 @@
                     var group4 = L.geoJSON(json4, optionsObject);
                     $.getJSON("./assets/data/data202205.js", function(json5){
                       var group5 = L.geoJSON(json5, optionsObject);
-                      group1.options.time = "2022.01";
-                      group2.options.time = "2022.02";
-                      group3.options.time = "2022.03";
-                      group4.options.time = "2022.04";
-                      group5.options.time = "2022.05";
-                      var multiLayers = L.layerGroup([group1, group2, group3, group4, group5]);
-                      var sliderControl1 = L.control.sliderControl({
-                        layer: multiLayers,
-                        alwaysShowDate: true,
-                        showAllPopups: false,
-                        showPopups: false
+                      $.getJSON("./assets/data/data202206.js", function(json6){
+                        var group6 = L.geoJSON(json6, optionsObject);
+                        group1.options.time = "2022.01";
+                        group2.options.time = "2022.02";
+                        group3.options.time = "2022.03";
+                        group4.options.time = "2022.04";
+                        group5.options.time = "2022.05";
+                        group6.options.time = "2022.06";
+                        var multiLayers = L.layerGroup([group1, group2, group3, group4, group5]);
+                        var sliderControl1 = L.control.sliderControl({
+                          layer: multiLayers,
+                          alwaysShowDate: true,
+                          showAllPopups: false,
+                          showPopups: false
+                        });
+                        map.addControl(sliderControl1);
+                        sliderControl1.startSlider();
                       });
-                      map.addControl(sliderControl1);
-                      sliderControl1.startSlider();
                     });
                   });
                 });
