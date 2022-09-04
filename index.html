@@ -126,23 +126,27 @@
                           var group7 = L.geoJSON(json7, optionsObject);
                           $.getJSON("./assets/data/data202208.js", function(json8){
                             var group8 = L.geoJSON(json8, optionsObject);
-                            group1.options.time = "2022.01";
-                            group2.options.time = "2022.02";
-                            group3.options.time = "2022.03";
-                            group4.options.time = "2022.04";
-                            group5.options.time = "2022.05";
-                            group6.options.time = "2022.06";
-                            group7.options.time = "2022.07";
-                            group8.options.time = "2022.08";
-                            var multiLayers = L.layerGroup([group1,group2,group3,group4,group5,group6,group7,group8]);
-                            var sliderControl1 = L.control.sliderControl({
-                              layer: multiLayers,
-                              alwaysShowDate: true,
-                              showAllPopups: false,
-                              showPopups: false
+                            $.getJSON("./assets/data/data202209.js", function(json9){
+                              var group9 = L.geoJSON(json9, optionsObject);
+                              group1.options.time = "2022.01";
+                              group2.options.time = "2022.02";
+                              group3.options.time = "2022.03";
+                              group4.options.time = "2022.04";
+                              group5.options.time = "2022.05";
+                              group6.options.time = "2022.06";
+                              group7.options.time = "2022.07";
+                              group8.options.time = "2022.08";
+                              group9.options.time = "2022.09";
+                              var multiLayers = L.layerGroup([group1,group2,group3,group4,group5,group6,group7,group8,group9]);
+                              var sliderControl1 = L.control.sliderControl({
+                                layer: multiLayers,
+                                alwaysShowDate: true,
+                                showAllPopups: false,
+                                showPopups: false
+                              });
+                              map.addControl(sliderControl1);
+                              sliderControl1.startSlider();
                             });
-                            map.addControl(sliderControl1);
-                            sliderControl1.startSlider();
                           });
                         });
                       });
@@ -173,8 +177,7 @@
                   <div class="col-lg-10">
                       <h2 class="text-white mb-4">Contact</h2>
                       <p class="text-white-80 mb-3" align="left">
-                      This site was built by Meng Cai, PhD candidate at <a href="https://www.canr.msu.edu/people/meng-cai?profileDisplayContent=contactInfo" target="_blank">Michigan State Univeristy</a>
-                      and <a href="https://www.verkehr.tu-darmstadt.de/vv/das_institut_ivv/team_ivv/wissenschaftliche_mitarbeiter_doktoranden/meng_cai/standardseite_204.de.jsp" target="_blank">Technische Universität Darmstadt</a>,
+                      This site was built by Meng Cai, PhD candidate at <a href="https://www.canr.msu.edu/people/meng-cai?profileDisplayContent=contactInfo" target="_blank">Michigan State Univeristy</a>,
                       as part of the <a href="https://chi.anthropology.msu.edu/fellowships/" target="_blank">Cultural Heritage Informatics Fellowship</a>. Meng can be reached at mengcai24601 at gmail dot com.
                       </p>
                   </div>
