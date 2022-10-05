@@ -128,24 +128,28 @@
                             var group8 = L.geoJSON(json8, optionsObject);
                             $.getJSON("./assets/data/data202209.js", function(json9){
                               var group9 = L.geoJSON(json9, optionsObject);
-                              group1.options.time = "2022.01";
-                              group2.options.time = "2022.02";
-                              group3.options.time = "2022.03";
-                              group4.options.time = "2022.04";
-                              group5.options.time = "2022.05";
-                              group6.options.time = "2022.06";
-                              group7.options.time = "2022.07";
-                              group8.options.time = "2022.08";
-                              group9.options.time = "2022.09";
-                              var multiLayers = L.layerGroup([group1,group2,group3,group4,group5,group6,group7,group8,group9]);
-                              var sliderControl1 = L.control.sliderControl({
-                                layer: multiLayers,
-                                alwaysShowDate: true,
-                                showAllPopups: false,
-                                showPopups: false
+                              $.getJSON("./assets/data/data202210.js", function(json10){
+                                var group10 = L.geoJSON(json10, optionsObject);
+                                group1.options.time = "2022.01";
+                                group2.options.time = "2022.02";
+                                group3.options.time = "2022.03";
+                                group4.options.time = "2022.04";
+                                group5.options.time = "2022.05";
+                                group6.options.time = "2022.06";
+                                group7.options.time = "2022.07";
+                                group8.options.time = "2022.08";
+                                group9.options.time = "2022.09";
+                                group10.options.time = "2022.10";
+                                var multiLayers = L.layerGroup([group1,group2,group3,group4,group5,group6,group7,group8,group9,group10]);
+                                var sliderControl1 = L.control.sliderControl({
+                                  layer: multiLayers,
+                                  alwaysShowDate: true,
+                                  showAllPopups: false,
+                                  showPopups: false
+                                });
+                                map.addControl(sliderControl1);
+                                sliderControl1.startSlider();
                               });
-                              map.addControl(sliderControl1);
-                              sliderControl1.startSlider();
                             });
                           });
                         });
