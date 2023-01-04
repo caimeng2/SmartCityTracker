@@ -134,28 +134,32 @@
                                   var group11 = L.geoJSON(json11, optionsObject);
                                   $.getJSON("./assets/data/data202212.js", function(json12){
                                     var group12 = L.geoJSON(json12, optionsObject);
-                                    group1.options.time = "2022.01";
-                                    group2.options.time = "2022.02";
-                                    group3.options.time = "2022.03";
-                                    group4.options.time = "2022.04";
-                                    group5.options.time = "2022.05";
-                                    group6.options.time = "2022.06";
-                                    group7.options.time = "2022.07";
-                                    group8.options.time = "2022.08";
-                                    group9.options.time = "2022.09";
-                                    group10.options.time = "2022.10";
-                                    group11.options.time = "2022.11";
-                                    group12.options.time = "2022.12";
-                                    var multiLayers = L.layerGroup([group1,group2,group3,group4,group5,group6,group7,group8,group9,group10,group11,group12]);
-                                    var sliderControl1 = L.control.sliderControl({
-                                      layer: multiLayers,
-                                      alwaysShowDate: true,
-                                      showAllPopups: false,
-                                      showPopups: false
+                                    $.getJSON("./assets/data/data202301.js", function(json13){
+                                      var group13 = L.geoJSON(json13, optionsObject);
+                                      group1.options.time = "2022.01";
+                                      group2.options.time = "2022.02";
+                                      group3.options.time = "2022.03";
+                                      group4.options.time = "2022.04";
+                                      group5.options.time = "2022.05";
+                                      group6.options.time = "2022.06";
+                                      group7.options.time = "2022.07";
+                                      group8.options.time = "2022.08";
+                                      group9.options.time = "2022.09";
+                                      group10.options.time = "2022.10";
+                                      group11.options.time = "2022.11";
+                                      group12.options.time = "2022.12";
+                                      group13.options.time = "2023.01";
+                                      var multiLayers = L.layerGroup([group1,group2,group3,group4,group5,group6,group7,group8,group9,group10,group11,group12,group13]);
+                                      var sliderControl1 = L.control.sliderControl({
+                                        layer: multiLayers,
+                                        alwaysShowDate: true,
+                                        showAllPopups: false,
+                                        showPopups: false
+                                      });
+                                      map.addControl(sliderControl1);
+                                      sliderControl1.startSlider();
                                     });
-                                    map.addControl(sliderControl1);
-                                    sliderControl1.startSlider();
-                                  });  
+                                  });
                                 });
                               });
                             });
