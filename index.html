@@ -138,29 +138,33 @@
                                       var group13 = L.geoJSON(json13, optionsObject);
                                       $.getJSON("./assets/data/data202302.js", function(json14){
                                         var group14 = L.geoJSON(json14, optionsObject);
-                                        group1.options.time = "2022.01";
-                                        group2.options.time = "2022.02";
-                                        group3.options.time = "2022.03";
-                                        group4.options.time = "2022.04";
-                                        group5.options.time = "2022.05";
-                                        group6.options.time = "2022.06";
-                                        group7.options.time = "2022.07";
-                                        group8.options.time = "2022.08";
-                                        group9.options.time = "2022.09";
-                                        group10.options.time = "2022.10";
-                                        group11.options.time = "2022.11";
-                                        group12.options.time = "2022.12";
-                                        group13.options.time = "2023.01";
-                                        group14.options.time = "2023.02";
-                                        var multiLayers = L.layerGroup([group1,group2,group3,group4,group5,group6,group7,group8,group9,group10,group11,group12,group13,group14]);
-                                        var sliderControl1 = L.control.sliderControl({
-                                          layer: multiLayers,
-                                          alwaysShowDate: true,
-                                          showAllPopups: false,
-                                          showPopups: false
+                                        $.getJSON("./assets/data/data202303.js", function(json15){
+                                          var group15 = L.geoJSON(json15, optionsObject);
+                                          group1.options.time = "2022.01";
+                                          group2.options.time = "2022.02";
+                                          group3.options.time = "2022.03";
+                                          group4.options.time = "2022.04";
+                                          group5.options.time = "2022.05";
+                                          group6.options.time = "2022.06";
+                                          group7.options.time = "2022.07";
+                                          group8.options.time = "2022.08";
+                                          group9.options.time = "2022.09";
+                                          group10.options.time = "2022.10";
+                                          group11.options.time = "2022.11";
+                                          group12.options.time = "2022.12";
+                                          group13.options.time = "2023.01";
+                                          group14.options.time = "2023.02";
+                                          group15.options.time = "2023.03";
+                                          var multiLayers = L.layerGroup([group15,group14,group13,group12,group11,group10,group9,group8,group7,group6,group5,group4,group3,group2,group1]);
+                                          var sliderControl1 = L.control.sliderControl({
+                                            layer: multiLayers,
+                                            alwaysShowDate: true,
+                                            showAllPopups: false,
+                                            showPopups: false
+                                          });
+                                          map.addControl(sliderControl1);
+                                          sliderControl1.startSlider();
                                         });
-                                        map.addControl(sliderControl1);
-                                        sliderControl1.startSlider();
                                       });
                                     });
                                   });
@@ -210,7 +214,8 @@
         </section>
         <!-- Footer-->
         <footer class="footer bg-mine small text-center text-white-50">
-          <div class="container px-4 px-lg-5">Copyright &copy; Smart City Tracker 2022</div>
+          <div class="container px-4 px-lg-5">Copyright &copy; Meng Cai 2023</div>
+          <div class="container px-4 px-lg-5"><a href="https://doi.org/10.5281/zenodo.7670784"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7670784.svg" alt="DOI"></a></div>
           <div class="container px-4 px-lg-5"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" target="_blank"></a>  This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</div>
         </footer>
         <!-- Bootstrap core JS-->
