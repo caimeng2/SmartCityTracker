@@ -140,30 +140,34 @@
                                         var group14 = L.geoJSON(json14, optionsObject);
                                         $.getJSON("./assets/data/data202303.js", function(json15){
                                           var group15 = L.geoJSON(json15, optionsObject);
-                                          group1.options.time = "2022.01";
-                                          group2.options.time = "2022.02";
-                                          group3.options.time = "2022.03";
-                                          group4.options.time = "2022.04";
-                                          group5.options.time = "2022.05";
-                                          group6.options.time = "2022.06";
-                                          group7.options.time = "2022.07";
-                                          group8.options.time = "2022.08";
-                                          group9.options.time = "2022.09";
-                                          group10.options.time = "2022.10";
-                                          group11.options.time = "2022.11";
-                                          group12.options.time = "2022.12";
-                                          group13.options.time = "2023.01";
-                                          group14.options.time = "2023.02";
-                                          group15.options.time = "2023.03";
-                                          var multiLayers = L.layerGroup([group15,group14,group13,group12,group11,group10,group9,group8,group7,group6,group5,group4,group3,group2,group1]);
-                                          var sliderControl1 = L.control.sliderControl({
-                                            layer: multiLayers,
-                                            alwaysShowDate: true,
-                                            showAllPopups: false,
-                                            showPopups: false
+                                          $.getJSON("./assets/data/data202304.js", function(json16){
+                                            var group16 = L.geoJSON(json16, optionsObject);
+                                            group1.options.time = "2022.01";
+                                            group2.options.time = "2022.02";
+                                            group3.options.time = "2022.03";
+                                            group4.options.time = "2022.04";
+                                            group5.options.time = "2022.05";
+                                            group6.options.time = "2022.06";
+                                            group7.options.time = "2022.07";
+                                            group8.options.time = "2022.08";
+                                            group9.options.time = "2022.09";
+                                            group10.options.time = "2022.10";
+                                            group11.options.time = "2022.11";
+                                            group12.options.time = "2022.12";
+                                            group13.options.time = "2023.01";
+                                            group14.options.time = "2023.02";
+                                            group15.options.time = "2023.03";
+                                            group16.options.time = "2023.04";
+                                            var multiLayers = L.layerGroup([group16,group15,group14,group13,group12,group11,group10,group9,group8,group7,group6,group5,group4,group3,group2,group1]);
+                                            var sliderControl1 = L.control.sliderControl({
+                                              layer: multiLayers,
+                                              alwaysShowDate: true,
+                                              showAllPopups: false,
+                                              showPopups: false
+                                            });
+                                            map.addControl(sliderControl1);
+                                            sliderControl1.startSlider();
                                           });
-                                          map.addControl(sliderControl1);
-                                          sliderControl1.startSlider();
                                         });
                                       });
                                     });
