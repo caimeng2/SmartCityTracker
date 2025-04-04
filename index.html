@@ -115,7 +115,7 @@
                 { year: 2022, months: Array.from({length: 12}, (_, i) => i + 1) },
                 { year: 2023, months: Array.from({length: 12}, (_, i) => i + 1) },
                 { year: 2024, months: Array.from({length: 12}, (_, i) => i + 1) },
-                { year: 2025, months: [1, 2, 3] }
+                { year: 2025, months: [1, 2, 3, 4] }
             ];
 
             // Create layers array
@@ -125,7 +125,7 @@
             function loadDataForPeriod(year, month) {
                 const monthStr = month.toString().padStart(2, '0');
                 const filePath = `./assets/data/data${year}${monthStr}.js`;
-                
+
                 return new Promise((resolve, reject) => {
                     $.getJSON(filePath, function(json) {
                         const layer = L.geoJSON(json, optionsObject);
@@ -137,7 +137,7 @@
 
             // Load all data
             Promise.all(
-                timePeriods.flatMap(period => 
+                timePeriods.flatMap(period =>
                     period.months.map(month => loadDataForPeriod(period.year, month))
                 )
             ).then(loadedLayers => {
@@ -175,8 +175,7 @@
                   <div class="col-lg-10">
                       <h2 class="text-white mb-4">Contact</h2>
                       <p class="text-white-80 mb-3" align="left">
-                      This site was built by Meng Cai, PhD candidate at <a href="https://www.canr.msu.edu/people/meng-cai?profileDisplayContent=contactInfo" target="_blank">Michigan State Univeristy</a>,
-                      as part of the <a href="https://chi.anthropology.msu.edu/fellowships/" target="_blank">Cultural Heritage Informatics Fellowship</a>. Meng can be reached at mengcai24601 at gmail dot com.
+                      This site was built by Meng Cai, as part of the <a href="https://chi.anthropology.msu.edu/fellowships/" target="_blank">Cultural Heritage Informatics Fellowship</a>. Meng can be reached at mengcai24601 at gmail dot com.
                       </p>
                   </div>
                 </div>
@@ -188,7 +187,7 @@
         </section>
         <!-- Footer-->
         <footer class="footer bg-mine small text-center text-white-50">
-          <div class="container px-4 px-lg-5">Copyright &copy; Meng Cai 2024</div>
+          <div class="container px-4 px-lg-5">Copyright &copy; Meng Cai 2025</div>
           <div class="container px-4 px-lg-5"><a href="https://doi.org/10.5281/zenodo.7670784"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7670784.svg" alt="DOI"></a></div>
           <div class="container px-4 px-lg-5"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" target="_blank"></a>  This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</div>
         </footer>
